@@ -38,8 +38,8 @@ class TCPLogstashHandler(SocketHandler, object):
         return self.formatter.format(record) + b'\n'
 
 
-    def makeSocket(self, timeout=1):
-        s = super(TCPLogstashHandler, self).makeSocket(timeout)
+    def makeSocket(self, *args, **kwargs):
+        s = super(TCPLogstashHandler, self).makeSocket(*args, **kwargs)
 
         if not self.ssl:
             return s
